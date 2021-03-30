@@ -1,13 +1,13 @@
 import { Helmet } from 'react-helmet';
 import { Box, Container } from '@material-ui/core';
-import InteractionListResults from 'src/components/calls/InteractionListResults';
-import InteractionListToolbar from 'src/components/calls/InteractionListToolbar';
+import InteractionListResults from 'src/components/interactions/InteractionListResults';
+import InteractionListToolbar from 'src/components/interactions/InteractionListToolbar';
 import interactions from 'src/__mocks__/interactions';
 
 const InteractionList = () => (
   <>
     <Helmet>
-      <title>Customers | Material Kit</title>
+      <title>Interactions</title>
     </Helmet>
     <Box
       sx={{

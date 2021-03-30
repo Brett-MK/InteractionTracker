@@ -28,7 +28,7 @@ const IssuesResolved = ({ issuesResolved, ...rest }) => (
             gutterBottom
             variant="h6"
           >
-            ISSUES RESOLVED
+            ISSUES RESOLVED THIS MONTH
           </Typography>
           <Typography
             color="textPrimary"

@@ -28,7 +28,7 @@ const TotalWaitTime = ({ totalWaitTime, ...rest }) => (
             gutterBottom
             variant="h6"
           >
-            TOTAL WAIT TIME
+            TOTAL WAIT TIME THIS MONTH
           </Typography>
           <Typography
             color="textPrimary"

@@ -79,7 +79,7 @@ const TrafficByCustomerStatus = ({ trafficByCustomerStatus, ...rest }) => {
 
   return (
     <Card {...rest}>
-      <CardHeader title="Traffic by Customer Status" />
+      <CardHeader title="Traffic by Customer Status This Month" />
       <Divider />
       <CardContent>
         <Box

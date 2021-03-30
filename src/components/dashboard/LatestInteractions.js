@@ -13,8 +13,6 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  TableSortLabel,
-  Tooltip
 } from '@material-ui/core';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
@@ -45,18 +43,8 @@ const LatestInteractions = ({ interactions, ...rest }) => (
               <TableCell>
                 Waiting Time
               </TableCell>
-              <TableCell sortDirection="desc">
-                <Tooltip
-                  enterDelay={300}
-                  title="Sort"
-                >
-                  <TableSortLabel
-                    active
-                    direction="desc"
-                  >
-                    Date
-                  </TableSortLabel>
-                </Tooltip>
+              <TableCell>
+                Date
               </TableCell>
               <TableCell>
                 Status

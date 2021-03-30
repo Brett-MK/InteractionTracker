@@ -25,7 +25,7 @@ const TotalInteractions = ({ totalInteractions, ...rest }) => (
             gutterBottom
             variant="h6"
           >
-            TOTAL INTERACTIONS
+            TOTAL INTERACTIONS THIS MONTH
           </Typography>
           <Typography
             color="textPrimary"
