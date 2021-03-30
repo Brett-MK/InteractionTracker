@@ -80,7 +80,7 @@ const LatestInteractions = ({ interactions, ...rest }) => (
                 </TableCell>
                 <TableCell>
                   <Chip
-                    color="primary"
+                    color={interaction.issueStatus === 'pending' ? 'error' : 'primary'}
                     label={interaction.issueStatus}
                     size="small"
                   />
