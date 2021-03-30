@@ -17,7 +17,7 @@ import {
 } from '@material-ui/core';
 import getInitials from 'src/utils/getInitials';
 
-const CallListResults = ({ customers, ...rest }) => {
+const InteractionListResults = ({ customers, ...rest }) => {
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
@@ -163,8 +163,8 @@ const CallListResults = ({ customers, ...rest }) => {
   );
 };
 
-CallListResults.propTypes = {
+InteractionListResults.propTypes = {
   customers: PropTypes.array.isRequired
 };
 
-export default CallListResults;
+export default InteractionListResults;

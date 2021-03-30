@@ -10,7 +10,7 @@ import { green } from '@material-ui/core/colors';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import PeopleIcon from '@material-ui/icons/PeopleOutlined';
 
-const TotalCalls = (props) => (
+const TotalInteractions = (props) => (
   <Card {...props}>
     <CardContent>
       <Grid
@@ -24,7 +24,7 @@ const TotalCalls = (props) => (
             gutterBottom
             variant="h6"
           >
-            TOTAL CALLS
+            TOTAL INTERACTIONS
           </Typography>
           <Typography
             color="textPrimary"
@@ -73,4 +73,4 @@ const TotalCalls = (props) => (
   </Card>
 );
 
-export default TotalCalls;
+export default TotalInteractions;

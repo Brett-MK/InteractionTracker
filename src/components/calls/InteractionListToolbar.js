@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core';
 import { Search as SearchIcon } from 'react-feather';
 
-const CallListToolbar = (props) => (
+const InteractionListToolbar = (props) => (
   <Box {...props}>
     <Box
       sx={{
@@ -58,4 +58,4 @@ const CallListToolbar = (props) => (
   </Box>
 );
 
-export default CallListToolbar;
+export default InteractionListToolbar;
