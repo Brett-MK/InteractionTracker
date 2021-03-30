@@ -187,10 +187,10 @@ const LatestInteractions = (props) => (
                 Direction
               </TableCell>
               <TableCell>
-                Call Time
+                Duration
               </TableCell>
               <TableCell>
-                Wait Time
+                Waiting Time
               </TableCell>
               <TableCell sortDirection="desc">
                 <Tooltip
