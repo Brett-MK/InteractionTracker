@@ -12,10 +12,20 @@ import {
   TextField,
   Typography
 } from '@material-ui/core';
+import { useAuth } from '../contexts/AuthContext';
 
 const Register = () => {
   const navigate = useNavigate();
+  const { register } = useAuth();
 
+  const handleRegister = async (e) => {
+    try {
+      await register(e.email, e.password, e.firstName, e.lastName);
+      navigate('/app/dashboard', { replace: true });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <Helmet>
@@ -48,8 +58,8 @@ const Register = () => {
                 policy: Yup.boolean().oneOf([true], 'This field must be checked')
               })
             }
-            onSubmit={() => {
-              navigate('/app/dashboard', { replace: true });
+            onSubmit={(e) => {
+              handleRegister(e);
             }}
           >
             {({
