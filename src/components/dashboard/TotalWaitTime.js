@@ -6,14 +6,15 @@ import {
   Grid,
   Typography
 } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import MoneyIcon from '@material-ui/icons/Money';
 import { red } from '@material-ui/core/colors';
 
-const TotalWaitTime = (props) => (
+const TotalWaitTime = ({ totalWaitTime, ...rest }) => (
   <Card
     sx={{ height: '100%' }}
-    {...props}
+    {...rest}
   >
     <CardContent>
       <Grid
@@ -33,7 +34,7 @@ const TotalWaitTime = (props) => (
             color="textPrimary"
             variant="h3"
           >
-            24,000 minutes
+            {totalWaitTime}
           </Typography>
         </Grid>
         <Grid item>
@@ -75,5 +76,9 @@ const TotalWaitTime = (props) => (
     </CardContent>
   </Card>
 );
+
+TotalWaitTime.propTypes = {
+  totalWaitTime: PropTypes.string.isRequired
+};
 
 export default TotalWaitTime;

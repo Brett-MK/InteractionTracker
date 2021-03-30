@@ -1,6 +1,6 @@
 import moment from 'moment';
-import { v4 as uuid } from 'uuid';
 import PerfectScrollbar from 'react-perfect-scrollbar';
+import PropTypes from 'prop-types';
 import {
   Box,
   Button,
@@ -18,155 +18,8 @@ import {
 } from '@material-ui/core';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
-const interactions = [
-  {
-    callId: uuid(),
-    timestamp: 1555016400000,
-    duration: {
-      unit: 'seconds',
-      value: '96'
-    },
-    waitingTime: {
-      unit: 'minutes',
-      value: '96'
-    },
-    agentData: {
-      agentId: uuid(),
-      agentName: 'Brett Knadle',
-      agentEmail: 'brett182x@gmail.com'
-    },
-    callData: {
-      direction: 'inbound',
-      callerName: 'Ekaterina Tankova',
-      callerNumber: '+19876543210',
-      issueStatus: 'pending'
-    },
-    customerStatus: 'Low Priority',
-  },
-  {
-    callId: uuid(),
-    timestamp: 1555016400000,
-    duration: {
-      unit: 'seconds',
-      value: '96'
-    },
-    waitingTime: {
-      unit: 'minutes',
-      value: '96'
-    },
-    agentData: {
-      agentId: uuid(),
-      agentName: 'Brett Knadle',
-      agentEmail: 'brett182x@gmail.com'
-    },
-    callData: {
-      direction: 'inbound',
-      callerName: 'Ekaterina Tankova',
-      callerNumber: '+19876543210',
-      issueStatus: 'pending'
-    },
-    customerStatus: 'Low Priority',
-  },
-  {
-    callId: uuid(),
-    timestamp: 1555016400000,
-    duration: {
-      unit: 'seconds',
-      value: '96'
-    },
-    waitingTime: {
-      unit: 'minutes',
-      value: '96'
-    },
-    agentData: {
-      agentId: uuid(),
-      agentName: 'Brett Knadle',
-      agentEmail: 'brett182x@gmail.com'
-    },
-    callData: {
-      direction: 'inbound',
-      callerName: 'Ekaterina Tankova',
-      callerNumber: '+19876543210',
-      issueStatus: 'pending'
-    },
-    customerStatus: 'Low Priority',
-  },
-  {
-    callId: uuid(),
-    timestamp: 1555016400000,
-    duration: {
-      unit: 'seconds',
-      value: '96'
-    },
-    waitingTime: {
-      unit: 'minutes',
-      value: '96'
-    },
-    agentData: {
-      agentId: uuid(),
-      agentName: 'Brett Knadle',
-      agentEmail: 'brett182x@gmail.com'
-    },
-    callData: {
-      direction: 'inbound',
-      callerName: 'Ekaterina Tankova',
-      callerNumber: '+19876543210',
-      issueStatus: 'pending'
-    },
-    customerStatus: 'Low Priority',
-  },
-  {
-    callId: uuid(),
-    timestamp: 1555016400000,
-    duration: {
-      unit: 'seconds',
-      value: '96'
-    },
-    waitingTime: {
-      unit: 'minutes',
-      value: '96'
-    },
-    agentData: {
-      agentId: uuid(),
-      agentName: 'Brett Knadle',
-      agentEmail: 'brett182x@gmail.com'
-    },
-    callData: {
-      direction: 'inbound',
-      callerName: 'Ekaterina Tankova',
-      callerNumber: '+19876543210',
-      issueStatus: 'pending'
-    },
-    customerStatus: 'Low Priority',
-  },
-  {
-    callId: uuid(),
-    timestamp: 1555016400000,
-    duration: {
-      unit: 'seconds',
-      value: '96'
-    },
-    waitingTime: {
-      unit: 'minutes',
-      value: '96'
-    },
-    agentData: {
-      agentId: uuid(),
-      agentName: 'Brett Knadle',
-      agentEmail: 'brett182x@gmail.com'
-    },
-    callData: {
-      direction: 'inbound',
-      callerName: 'Ekaterina Tankova',
-      callerNumber: '+19876543210',
-      issueStatus: 'pending'
-    },
-    customerStatus: 'Low Priority',
-  }
-];
-
-const LatestInteractions = (props) => (
-  <Card {...props}>
+const LatestInteractions = ({ interactions, ...rest }) => (
+  <Card {...rest}>
     <CardHeader title="Latest Interactions" />
     <Divider />
     <PerfectScrollbar>
@@ -268,5 +121,9 @@ const LatestInteractions = (props) => (
     </Box>
   </Card>
 );
+
+LatestInteractions.propTypes = {
+  interactions: PropTypes.array.isRequired
+};
 
 export default LatestInteractions;

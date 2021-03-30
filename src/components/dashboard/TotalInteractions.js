@@ -6,12 +6,13 @@ import {
   Grid,
   Typography
 } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import { green } from '@material-ui/core/colors';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import PeopleIcon from '@material-ui/icons/PeopleOutlined';
 
-const TotalInteractions = (props) => (
-  <Card {...props}>
+const TotalInteractions = ({ totalInteractions, ...rest }) => (
+  <Card {...rest}>
     <CardContent>
       <Grid
         container
@@ -30,7 +31,7 @@ const TotalInteractions = (props) => (
             color="textPrimary"
             variant="h3"
           >
-            1,600
+            {totalInteractions}
           </Typography>
         </Grid>
         <Grid item>
@@ -72,5 +73,9 @@ const TotalInteractions = (props) => (
     </CardContent>
   </Card>
 );
+
+TotalInteractions.propTypes = {
+  totalInteractions: PropTypes.string.isRequired
+};
 
 export default TotalInteractions;

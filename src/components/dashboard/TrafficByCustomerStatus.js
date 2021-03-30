@@ -9,11 +9,12 @@ import {
   colors,
   useTheme
 } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import NotificationImportant from '@material-ui/icons/NotificationImportant';
 import PersonIcon from '@material-ui/icons/Person';
 import LowPriority from '@material-ui/icons/LowPriority';
 
-const TrafficByCustomerStatus = (props) => {
+const TrafficByCustomerStatus = ({ trafficByCustomerStatus, ...rest }) => {
   const theme = useTheme();
 
   const data = {
@@ -58,26 +59,26 @@ const TrafficByCustomerStatus = (props) => {
   const customerStatuses = [
     {
       title: 'Low Priority',
-      value: 15,
+      value: trafficByCustomerStatus.lowPriority,
       icon: LowPriority,
       color: colors.red[600]
     },
     {
       title: 'Normal',
-      value: 63,
+      value: trafficByCustomerStatus.normal,
       icon: PersonIcon,
       color: colors.indigo[500]
     },
     {
       title: 'VIP',
-      value: 23,
+      value: trafficByCustomerStatus.vip,
       icon: NotificationImportant,
       color: colors.orange[600]
     }
   ];
 
   return (
-    <Card {...props}>
+    <Card {...rest}>
       <CardHeader title="Traffic by Customer Status" />
       <Divider />
       <CardContent>
@@ -132,6 +133,10 @@ const TrafficByCustomerStatus = (props) => {
       </CardContent>
     </Card>
   );
+};
+
+TrafficByCustomerStatus.propTypes = {
+  trafficByCustomerStatus: PropTypes.object.isRequired
 };
 
 export default TrafficByCustomerStatus;

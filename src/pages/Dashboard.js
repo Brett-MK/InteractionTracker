@@ -5,6 +5,8 @@ import LatestInteractions from 'src/components/dashboard/LatestInteractions';
 import IssuesResolved from 'src/components/dashboard/IssuesResolved';
 import TotalInteractions from 'src/components/dashboard/TotalInteractions';
 import TrafficByCustomerStatus from 'src/components/dashboard//TrafficByCustomerStatus';
+import interactions from 'src/__mocks__/interactions';
+import latestMonthReport from 'src/__mocks__/latestMonthReport';
 
 const Dashboard = () => (
   <>
@@ -21,19 +23,19 @@ const Dashboard = () => (
       <Container maxWidth={false}>
         <Grid container spacing={3}>
           <Grid item lg={4} sm={6} xl={4} xs={12}>
-            <TotalInteractions />
+            <TotalInteractions totalInteractions={latestMonthReport.totalInteractions} />
           </Grid>
           <Grid item lg={4} sm={6} xl={4} xs={12}>
-            <TotalWaitTime />
+            <TotalWaitTime totalWaitTime={latestMonthReport.totalWaitTime} />
           </Grid>
           <Grid item lg={4} sm={6} xl={4} xs={12}>
-            <IssuesResolved />
+            <IssuesResolved issuesResolved={latestMonthReport.issuesResolved} />
           </Grid>
           <Grid item lg={8} md={12} xl={9} xs={12}>
-            <LatestInteractions />
+            <LatestInteractions interactions={interactions.slice(0, 8)} />
           </Grid>
           <Grid item lg={4} md={6} xl={3} xs={12}>
-            <TrafficByCustomerStatus sx={{ height: '100%' }} />
+            <TrafficByCustomerStatus sx={{ height: '100%' }} trafficByCustomerStatus={latestMonthReport.trafficByCustomerStatus} />
           </Grid>
         </Grid>
       </Container>

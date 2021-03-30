@@ -7,13 +7,14 @@ import {
   LinearProgress,
   Typography
 } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import { orange } from '@material-ui/core/colors';
 import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
 
-const IssuesResolved = (props) => (
+const IssuesResolved = ({ issuesResolved, ...rest }) => (
   <Card
     sx={{ height: '100%' }}
-    {...props}
+    {...rest}
   >
     <CardContent>
       <Grid
@@ -33,7 +34,7 @@ const IssuesResolved = (props) => (
             color="textPrimary"
             variant="h3"
           >
-            75.5%
+            {issuesResolved}
           </Typography>
         </Grid>
         <Grid item>
@@ -57,5 +58,9 @@ const IssuesResolved = (props) => (
     </CardContent>
   </Card>
 );
+
+IssuesResolved.propTypes = {
+  issuesResolved: PropTypes.string.isRequired
+};
 
 export default IssuesResolved;
