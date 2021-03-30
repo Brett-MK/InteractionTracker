@@ -9,6 +9,8 @@ import {
   Grid,
   TextField
 } from '@material-ui/core';
+// import { useNavigate } from 'react-router';
+import { useAuth } from '../../contexts/AuthContext';
 
 const states = [
   {
@@ -20,26 +22,44 @@ const states = [
     label: 'New York'
   },
   {
+    value: 'nevada',
+    label: 'Nevada'
+  },
+  {
     value: 'san-francisco',
     label: 'San Francisco'
   }
 ];
 
 const AccountProfileDetails = (props) => {
+  const { currentUser, updateName, updateEmail } = useAuth();
   const [values, setValues] = useState({
-    firstName: 'Katarina',
-    lastName: 'Smith',
-    email: 'demo@devias.io',
+    firstName: currentUser.displayName.split(' ')[0],
+    lastName: currentUser.displayName.split(' ')[1],
+    email: 'demo@interactiontracker.com',
     phone: '',
-    state: 'Alabama',
+    state: 'nevada',
     country: 'USA'
   });
+
+  if (!currentUser) {
+    return null;
+  }
 
   const handleChange = (event) => {
     setValues({
       ...values,
       [event.target.name]: event.target.value
     });
+  };
+
+  const handleSubmit = () => {
+    if (currentUser.displayName !== `${values.firstName} ${values.lastName}`) {
+      updateName(`${values.firstName} ${values.lastName}`);
+    }
+    if (currentUser.email !== values.email) {
+      updateEmail(values.email);
+    }
   };
 
   return (
@@ -174,6 +194,7 @@ const AccountProfileDetails = (props) => {
           <Button
             color="primary"
             variant="contained"
+            onClick={handleSubmit}
           >
             Save details
           </Button>

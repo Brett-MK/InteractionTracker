@@ -22,13 +22,12 @@ import { useAuth } from '../contexts/AuthContext';
 
 const user = {
   avatar: '/static/images/avatars/avatar_6.png',
-  jobTitle: 'Senior Developer',
-  name: 'Katarina Smith'
+  jobTitle: 'Support Agent',
 };
 
 const DashboardSidebar = ({ onMobileClose, openMobile }) => {
   const location = useLocation();
-  const { logout } = useAuth();
+  const { logout, currentUser } = useAuth();
 
   const items = [
     {
@@ -89,7 +88,7 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
           color="textPrimary"
           variant="h5"
         >
-          {user.name}
+          {currentUser.displayName}
         </Typography>
         <Typography
           color="textSecondary"
