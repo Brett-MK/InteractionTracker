@@ -19,7 +19,7 @@ const Register = () => {
   return (
     <>
       <Helmet>
-        <title>Register | Material Kit</title>
+        <title>Register | Interaction Tracker</title>
       </Helmet>
       <Box
         sx={{

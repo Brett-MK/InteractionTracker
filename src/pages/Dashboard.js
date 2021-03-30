@@ -11,7 +11,7 @@ import latestMonthReport from 'src/__mocks__/latestMonthReport';
 const Dashboard = () => (
   <>
     <Helmet>
-      <title>Dashboard | Material Kit</title>
+      <title>Dashboard | Interaction Tracker</title>
     </Helmet>
     <Box
       sx={{

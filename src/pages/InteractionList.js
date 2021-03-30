@@ -7,7 +7,7 @@ import interactions from 'src/__mocks__/interactions';
 const InteractionList = () => (
   <>
     <Helmet>
-      <title>Interactions</title>
+      <title>Interactions | Interaction Tracker</title>
     </Helmet>
     <Box
       sx={{
