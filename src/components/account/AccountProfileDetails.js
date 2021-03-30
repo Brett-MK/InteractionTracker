@@ -32,7 +32,7 @@ const states = [
 ];
 
 const AccountProfileDetails = (props) => {
-  const { currentUser, updateName, updateEmail } = useAuth();
+  const { currentUser } = useAuth();
   const [values, setValues] = useState({
     firstName: currentUser.displayName.split(' ')[0],
     lastName: currentUser.displayName.split(' ')[1],
@@ -51,15 +51,6 @@ const AccountProfileDetails = (props) => {
       ...values,
       [event.target.name]: event.target.value
     });
-  };
-
-  const handleSubmit = () => {
-    if (currentUser.displayName !== `${values.firstName} ${values.lastName}`) {
-      updateName(`${values.firstName} ${values.lastName}`);
-    }
-    if (currentUser.email !== values.email) {
-      updateEmail(values.email);
-    }
   };
 
   return (
@@ -194,7 +185,6 @@ const AccountProfileDetails = (props) => {
           <Button
             color="primary"
             variant="contained"
-            onClick={handleSubmit}
           >
             Save details
           </Button>
