@@ -108,7 +108,7 @@ const InteractionListResults = ({ interactions, ...rest }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {interactions.slice(0, limit).map((interaction) => (
+              {interactions.slice(page * limit, page * limit + limit).map((interaction) => (
                 <TableRow
                   hover
                   key={interaction.id}
