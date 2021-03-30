@@ -35,7 +35,7 @@ const items = [
   {
     href: '/app/customers',
     icon: UsersIcon,
-    title: 'Customers'
+    title: 'Calls'
   },
   {
     href: '/app/account',

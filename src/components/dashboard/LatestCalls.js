@@ -117,7 +117,7 @@ const calls = [
   }
 ];
 
-const LatestCustomers = (props) => (
+const LatestCalls = (props) => (
   <Card {...props}>
     <CardHeader title="Latest Customer Calls" />
     <Divider />
@@ -221,4 +221,4 @@ const LatestCustomers = (props) => (
   </Card>
 );
 
-export default LatestCustomers;
+export default LatestCalls;

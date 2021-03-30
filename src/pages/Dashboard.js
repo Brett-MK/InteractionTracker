@@ -1,9 +1,9 @@
 import { Helmet } from 'react-helmet';
 import { Box, Container, Grid } from '@material-ui/core';
 import TotalWaitTime from 'src/components/dashboard/TotalWaitTime';
-import LatestCustomers from 'src/components/dashboard//LatestCustomers';
+import LatestCalls from 'src/components/dashboard/LatestCalls';
 import IssuesResolved from 'src/components/dashboard/IssuesResolved';
-import TotalCustomers from 'src/components/dashboard//TotalCustomers';
+import TotalCalls from 'src/components/dashboard/TotalCalls';
 import TrafficByCustomerStatus from 'src/components/dashboard//TrafficByCustomerStatus';
 
 const Dashboard = () => (
@@ -21,7 +21,7 @@ const Dashboard = () => (
       <Container maxWidth={false}>
         <Grid container spacing={3}>
           <Grid item lg={4} sm={6} xl={4} xs={12}>
-            <TotalCustomers />
+            <TotalCalls />
           </Grid>
           <Grid item lg={4} sm={6} xl={4} xs={12}>
             <TotalWaitTime />
@@ -30,7 +30,7 @@ const Dashboard = () => (
             <IssuesResolved />
           </Grid>
           <Grid item lg={8} md={12} xl={9} xs={12}>
-            <LatestCustomers />
+            <LatestCalls />
           </Grid>
           <Grid item lg={4} md={6} xl={3} xs={12}>
             <TrafficByCustomerStatus sx={{ height: '100%' }} />
