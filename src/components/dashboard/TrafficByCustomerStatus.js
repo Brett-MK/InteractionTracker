@@ -13,7 +13,7 @@ import LaptopMacIcon from '@material-ui/icons/LaptopMac';
 import PhoneIcon from '@material-ui/icons/Phone';
 import TabletIcon from '@material-ui/icons/Tablet';
 
-const TrafficByDevice = (props) => {
+const TrafficByCustomerStatus = (props) => {
   const theme = useTheme();
 
   const data = {
@@ -78,7 +78,7 @@ const TrafficByDevice = (props) => {
 
   return (
     <Card {...props}>
-      <CardHeader title="Traffic by Device" />
+      <CardHeader title="Traffic by Customer Status" />
       <Divider />
       <CardContent>
         <Box
@@ -134,4 +134,4 @@ const TrafficByDevice = (props) => {
   );
 };
 
-export default TrafficByDevice;
+export default TrafficByCustomerStatus;

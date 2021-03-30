@@ -1,12 +1,10 @@
 import { Helmet } from 'react-helmet';
 import { Box, Container, Grid } from '@material-ui/core';
-import TotalWaitTimeThisMonth from 'src/components/dashboard/TotalWaitTimeThisMonth';
-import LatestOrders from 'src/components/dashboard//LatestOrders';
-import Sales from 'src/components/dashboard//Sales';
-import TasksProgress from 'src/components/dashboard//TasksProgress';
+import TotalWaitTime from 'src/components/dashboard/TotalWaitTime';
+import LatestCustomers from 'src/components/dashboard//LatestCustomers';
+import IssuesResolved from 'src/components/dashboard/IssuesResolved';
 import TotalCustomers from 'src/components/dashboard//TotalCustomers';
-import TotalProfit from 'src/components/dashboard//TotalProfit';
-import TrafficByDevice from 'src/components/dashboard//TrafficByDevice';
+import TrafficByCustomerStatus from 'src/components/dashboard//TrafficByCustomerStatus';
 
 const Dashboard = () => (
   <>
@@ -22,26 +20,20 @@ const Dashboard = () => (
     >
       <Container maxWidth={false}>
         <Grid container spacing={3}>
-          <Grid item lg={3} sm={6} xl={3} xs={12}>
-            <TotalWaitTimeThisMonth />
-          </Grid>
-          <Grid item lg={3} sm={6} xl={3} xs={12}>
+          <Grid item lg={4} sm={6} xl={4} xs={12}>
             <TotalCustomers />
           </Grid>
-          <Grid item lg={3} sm={6} xl={3} xs={12}>
-            <TasksProgress />
+          <Grid item lg={4} sm={6} xl={4} xs={12}>
+            <TotalWaitTime />
           </Grid>
-          <Grid item lg={3} sm={6} xl={3} xs={12}>
-            <TotalProfit sx={{ height: '100%' }} />
+          <Grid item lg={4} sm={6} xl={4} xs={12}>
+            <IssuesResolved />
           </Grid>
           <Grid item lg={8} md={12} xl={9} xs={12}>
-            <Sales />
+            <LatestCustomers />
           </Grid>
           <Grid item lg={4} md={6} xl={3} xs={12}>
-            <TrafficByDevice sx={{ height: '100%' }} />
-          </Grid>
-          <Grid item lg={12} md={12} xl={12} xs={12}>
-            <LatestOrders />
+            <TrafficByCustomerStatus sx={{ height: '100%' }} />
           </Grid>
         </Grid>
       </Container>

@@ -10,7 +10,7 @@ import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import MoneyIcon from '@material-ui/icons/Money';
 import { red } from '@material-ui/core/colors';
 
-const TotalWaitTimeThisMonth = (props) => (
+const TotalWaitTime = (props) => (
   <Card
     sx={{ height: '100%' }}
     {...props}
@@ -27,7 +27,7 @@ const TotalWaitTimeThisMonth = (props) => (
             gutterBottom
             variant="h6"
           >
-            Total Wait Time This Month
+            TOTAL WAIT TIME
           </Typography>
           <Typography
             color="textPrimary"
@@ -76,4 +76,4 @@ const TotalWaitTimeThisMonth = (props) => (
   </Card>
 );
 
-export default TotalWaitTimeThisMonth;
+export default TotalWaitTime;
