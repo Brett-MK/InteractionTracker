@@ -18,72 +18,108 @@ import {
 } from '@material-ui/core';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
-const orders = [
+const calls = [
   {
     id: uuid(),
-    ref: 'CDD1049',
-    amount: 30.5,
-    customer: {
-      name: 'Ekaterina Tankova'
+    callTimeInMinutes: 30,
+    waitingTimeInMinutes: 15,
+    callDateTime: 1555016400000,
+    callDirection: 'inbound',
+    agent: {
+      name: 'Brett Knadle',
+      email: 'brett182x@gmail.com'
     },
-    createdAt: 1555016400000,
+    customer: {
+      name: 'Ekaterina Tankova',
+      status: 'Low Priority'
+    },
     status: 'pending'
   },
   {
     id: uuid(),
-    ref: 'CDD1048',
-    amount: 25.1,
-    customer: {
-      name: 'Cao Yu'
+    callTimeInMinutes: 25,
+    waitingTimeInMinutes: 12,
+    callDateTime: 1555016400000,
+    callDirection: 'inbound',
+    agent: {
+      name: 'Brett Knadle',
+      email: 'brett182x@gmail.com'
     },
-    createdAt: 1555016400000,
-    status: 'delivered'
+    customer: {
+      name: 'Cao Yu',
+      status: 'Normal'
+    },
+    status: 'resolved'
   },
   {
     id: uuid(),
-    ref: 'CDD1047',
-    amount: 10.99,
-    customer: {
-      name: 'Alexa Richardson'
+    callTimeInMinutes: 11,
+    waitingTimeInMinutes: 10,
+    callDateTime: 1554930000000,
+    callDirection: 'outbound',
+    agent: {
+      name: 'Brett Knadle',
+      email: 'brett182x@gmail.com'
     },
-    createdAt: 1554930000000,
-    status: 'refunded'
+    customer: {
+      name: 'Alexa Richardson',
+      status: 'VIP'
+    },
+    status: 'resolved'
   },
   {
     id: uuid(),
-    ref: 'CDD1046',
-    amount: 96.43,
-    customer: {
-      name: 'Anje Keizer'
+    callTimeInMinutes: 96,
+    waitingTimeInMinutes: 12,
+    callDateTime: 1554757200000,
+    callDirection: 'inbound',
+    agent: {
+      name: 'Brett Knadle',
+      email: 'brett182x@gmail.com'
     },
-    createdAt: 1554757200000,
+    customer: {
+      name: 'Anje Keizer',
+      status: 'Normal'
+    },
     status: 'pending'
   },
   {
     id: uuid(),
-    ref: 'CDD1045',
-    amount: 32.54,
-    customer: {
-      name: 'Clarke Gillebert'
+    callTimeInMinutes: 32,
+    waitingTimeInMinutes: 15,
+    callDateTime: 1554670800000,
+    callDirection: 'outbound',
+    agent: {
+      name: 'Brett Knadle',
+      email: 'brett182x@gmail.com'
     },
-    createdAt: 1554670800000,
-    status: 'delivered'
+    customer: {
+      name: 'Clarke Gillebert',
+      status: 'Normal'
+    },
+    status: 'resolved'
   },
   {
     id: uuid(),
-    ref: 'CDD1044',
-    amount: 16.76,
-    customer: {
-      name: 'Adam Denisov'
+    callTimeInMinutes: 17,
+    waitingTimeInMinutes: 5,
+    callDateTime: 1554670800000,
+    callDirection: 'outbound',
+    agent: {
+      name: 'Brett Knadle',
+      email: 'brett182x@gmail.com'
     },
-    createdAt: 1554670800000,
-    status: 'delivered'
+    customer: {
+      name: 'Adam Denisov',
+      status: 'VIP'
+    },
+    status: 'resolved'
   }
 ];
 
 const LatestCustomers = (props) => (
   <Card {...props}>
-    <CardHeader title="Latest Customers" />
+    <CardHeader title="Latest Customer Calls" />
     <Divider />
     <PerfectScrollbar>
       <Box sx={{ minWidth: 800 }}>
@@ -91,10 +127,22 @@ const LatestCustomers = (props) => (
           <TableHead>
             <TableRow>
               <TableCell>
-                Order Ref
+                Customer
               </TableCell>
               <TableCell>
-                Customer
+                Customer Status
+              </TableCell>
+              <TableCell>
+                Agent
+              </TableCell>
+              <TableCell>
+                Direction
+              </TableCell>
+              <TableCell>
+                Call Time
+              </TableCell>
+              <TableCell>
+                Wait Time
               </TableCell>
               <TableCell sortDirection="desc">
                 <Tooltip
@@ -115,24 +163,36 @@ const LatestCustomers = (props) => (
             </TableRow>
           </TableHead>
           <TableBody>
-            {orders.map((order) => (
+            {calls.map((call) => (
               <TableRow
                 hover
-                key={order.id}
+                key={call.id}
               >
                 <TableCell>
-                  {order.ref}
+                  {call.customer.name}
                 </TableCell>
                 <TableCell>
-                  {order.customer.name}
+                  {call.customer.status}
                 </TableCell>
                 <TableCell>
-                  {moment(order.createdAt).format('DD/MM/YYYY')}
+                  {call.agent.name}
+                </TableCell>
+                <TableCell>
+                  {call.callDirection}
+                </TableCell>
+                <TableCell>
+                  {`${call.callTimeInMinutes} minutes`}
+                </TableCell>
+                <TableCell>
+                  {`${call.waitingTimeInMinutes} minutes`}
+                </TableCell>
+                <TableCell>
+                  {moment(call.callDateTime).format('DD/MM/YYYY')}
                 </TableCell>
                 <TableCell>
                   <Chip
                     color="primary"
-                    label={order.status}
+                    label={call.status}
                     size="small"
                   />
                 </TableCell>

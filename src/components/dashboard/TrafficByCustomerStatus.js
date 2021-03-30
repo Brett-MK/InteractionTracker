@@ -9,9 +9,9 @@ import {
   colors,
   useTheme
 } from '@material-ui/core';
-import LaptopMacIcon from '@material-ui/icons/LaptopMac';
-import PhoneIcon from '@material-ui/icons/Phone';
-import TabletIcon from '@material-ui/icons/Tablet';
+import NotificationImportant from '@material-ui/icons/NotificationImportant';
+import PersonIcon from '@material-ui/icons/Person';
+import LowPriority from '@material-ui/icons/LowPriority';
 
 const TrafficByCustomerStatus = (props) => {
   const theme = useTheme();
@@ -30,7 +30,7 @@ const TrafficByCustomerStatus = (props) => {
         hoverBorderColor: colors.common.white
       }
     ],
-    labels: ['Desktop', 'Tablet', 'Mobile']
+    labels: ['Normal', 'Low Priority', 'VIP']
   };
 
   const options = {
@@ -55,23 +55,23 @@ const TrafficByCustomerStatus = (props) => {
     }
   };
 
-  const devices = [
+  const customerStatuses = [
     {
-      title: 'Desktop',
-      value: 63,
-      icon: LaptopMacIcon,
-      color: colors.indigo[500]
-    },
-    {
-      title: 'Tablet',
+      title: 'Low Priority',
       value: 15,
-      icon: TabletIcon,
+      icon: LowPriority,
       color: colors.red[600]
     },
     {
-      title: 'Mobile',
+      title: 'Normal',
+      value: 63,
+      icon: PersonIcon,
+      color: colors.indigo[500]
+    },
+    {
+      title: 'VIP',
       value: 23,
-      icon: PhoneIcon,
+      icon: NotificationImportant,
       color: colors.orange[600]
     }
   ];
@@ -99,7 +99,7 @@ const TrafficByCustomerStatus = (props) => {
             pt: 2
           }}
         >
-          {devices.map(({
+          {customerStatuses.map(({
             color,
             icon: Icon,
             title,
