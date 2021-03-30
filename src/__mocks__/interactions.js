@@ -2,7 +2,7 @@ import { v4 as uuid } from 'uuid';
 
 export default [
   {
-    id: uuid(),
+    callId: uuid(),
     timestamp: 1555016400000,
     duration: {
       unit: 'seconds',
@@ -26,7 +26,7 @@ export default [
     customerStatus: 'Low Priority',
   },
   {
-    id: uuid(),
+    callId: uuid(),
     timestamp: 1555016400000,
     duration: {
       unit: 'seconds',
@@ -50,7 +50,7 @@ export default [
     customerStatus: 'Low Priority',
   },
   {
-    id: uuid(),
+    callId: uuid(),
     timestamp: 1555016400000,
     duration: {
       unit: 'seconds',
@@ -74,7 +74,7 @@ export default [
     customerStatus: 'Low Priority',
   },
   {
-    id: uuid(),
+    callId: uuid(),
     timestamp: 1555016400000,
     duration: {
       unit: 'seconds',
@@ -98,7 +98,7 @@ export default [
     customerStatus: 'Low Priority',
   },
   {
-    id: uuid(),
+    callId: uuid(),
     timestamp: 1555016400000,
     duration: {
       unit: 'seconds',
@@ -122,7 +122,7 @@ export default [
     customerStatus: 'Low Priority',
   },
   {
-    id: uuid(),
+    callId: uuid(),
     timestamp: 1555016400000,
     duration: {
       unit: 'seconds',
@@ -146,7 +146,7 @@ export default [
     customerStatus: 'Low Priority',
   },
   {
-    id: uuid(),
+    callId: uuid(),
     timestamp: 1555016400000,
     duration: {
       unit: 'seconds',
@@ -170,7 +170,7 @@ export default [
     customerStatus: 'Low Priority',
   },
   {
-    id: uuid(),
+    callId: uuid(),
     timestamp: 1555016400000,
     duration: {
       unit: 'seconds',
@@ -194,7 +194,7 @@ export default [
     customerStatus: 'Low Priority',
   },
   {
-    id: uuid(),
+    callId: uuid(),
     timestamp: 1555016400000,
     duration: {
       unit: 'seconds',
@@ -218,7 +218,7 @@ export default [
     customerStatus: 'Low Priority',
   },
   {
-    id: uuid(),
+    callId: uuid(),
     timestamp: 1555016400000,
     duration: {
       unit: 'seconds',
@@ -242,7 +242,7 @@ export default [
     customerStatus: 'Low Priority',
   },
   {
-    id: uuid(),
+    callId: uuid(),
     timestamp: 1555016400000,
     duration: {
       unit: 'seconds',

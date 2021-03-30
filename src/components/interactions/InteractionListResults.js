@@ -27,7 +27,7 @@ const InteractionListResults = ({ interactions, ...rest }) => {
     let newSelectedInteractionIds;
 
     if (event.target.checked) {
-      newSelectedInteractionIds = interactions.map((interaction) => interaction.id);
+      newSelectedInteractionIds = interactions.map((interaction) => interaction.callId);
     } else {
       newSelectedInteractionIds = [];
     }
@@ -111,13 +111,13 @@ const InteractionListResults = ({ interactions, ...rest }) => {
               {interactions.slice(page * limit, page * limit + limit).map((interaction) => (
                 <TableRow
                   hover
-                  key={interaction.id}
-                  selected={selectedInteractionIds.indexOf(interaction.id) !== -1}
+                  key={interaction.callId}
+                  selected={selectedInteractionIds.indexOf(interaction.callId) !== -1}
                 >
                   <TableCell padding="checkbox">
                     <Checkbox
-                      checked={selectedInteractionIds.indexOf(interaction.id) !== -1}
-                      onChange={(event) => handleSelectOne(event, interaction.id)}
+                      checked={selectedInteractionIds.indexOf(interaction.callId) !== -1}
+                      onChange={(event) => handleSelectOne(event, interaction.callId)}
                       value="true"
                     />
                   </TableCell>
