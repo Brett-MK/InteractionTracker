@@ -20,18 +20,18 @@ const TrafficByCustomerStatus = ({ trafficByCustomerStatus, ...rest }) => {
   const data = {
     datasets: [
       {
-        data: [63, 15, 22],
+        data: [trafficByCustomerStatus.lowPriority, trafficByCustomerStatus.normal, trafficByCustomerStatus.vip],
         backgroundColor: [
+          colors.orange[600],
           colors.indigo[500],
           colors.red[600],
-          colors.orange[600]
         ],
         borderWidth: 8,
         borderColor: colors.common.white,
         hoverBorderColor: colors.common.white
       }
     ],
-    labels: ['Normal', 'Low Priority', 'VIP']
+    labels: ['Low Priority', 'Normal', 'VIP']
   };
 
   const options = {
@@ -61,7 +61,7 @@ const TrafficByCustomerStatus = ({ trafficByCustomerStatus, ...rest }) => {
       title: 'Low Priority',
       value: trafficByCustomerStatus.lowPriority,
       icon: LowPriority,
-      color: colors.red[600]
+      color: colors.orange[600]
     },
     {
       title: 'Normal',
@@ -73,7 +73,7 @@ const TrafficByCustomerStatus = ({ trafficByCustomerStatus, ...rest }) => {
       title: 'VIP',
       value: trafficByCustomerStatus.vip,
       icon: NotificationImportant,
-      color: colors.orange[600]
+      color: colors.red[600]
     }
   ];
 
