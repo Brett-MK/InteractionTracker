@@ -9,10 +9,10 @@ import NotFound from 'src/pages/NotFound';
 import Register from 'src/pages/Register';
 import Settings from 'src/pages/Settings';
 
-const routes = [
+const routes = (currentUser) => [
   {
     path: 'app',
-    element: <DashboardLayout />,
+    element: currentUser ? <DashboardLayout /> : <Navigate to="/login" />,
     children: [
       { path: 'account', element: <Account /> },
       { path: 'interactions', element: <InteractionList /> },
@@ -23,7 +23,7 @@ const routes = [
   },
   {
     path: '/',
-    element: <MainLayout />,
+    element: !currentUser ? <MainLayout /> : <Navigate to="/app/dashboard" />,
     children: [
       { path: 'login', element: <Login /> },
       { path: 'register', element: <Register /> },

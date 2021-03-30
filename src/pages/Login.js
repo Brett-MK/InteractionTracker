@@ -13,9 +13,20 @@ import {
 } from '@material-ui/core';
 import FacebookIcon from 'src/icons/Facebook';
 import GoogleIcon from 'src/icons/Google';
+import { useAuth } from '../contexts/AuthContext';
 
 const Login = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
+
+  const handleLogin = async (e) => {
+    try {
+      await login(e.email, e.password);
+      navigate('/app/dashboard', { replace: true });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -34,8 +45,8 @@ const Login = () => {
         <Container maxWidth="sm">
           <Formik
             initialValues={{
-              email: 'demo@devias.io',
-              password: 'Password123'
+              email: 'demo@interactiontracker.com',
+              password: 'Password!'
             }}
             validationSchema={Yup.object().shape({
               email: Yup.string()
@@ -44,8 +55,8 @@ const Login = () => {
                 .required('Email is required'),
               password: Yup.string().max(255).required('Password is required')
             })}
-            onSubmit={() => {
-              navigate('/app/dashboard', { replace: true });
+            onSubmit={(e) => {
+              handleLogin(e);
             }}
           >
             {({
