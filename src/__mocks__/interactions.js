@@ -1,268 +1,102 @@
-import { v4 as uuid } from 'uuid';
-
 export default [
   {
-    callId: uuid(),
-    timestamp: 1555016400000,
+    callId: '56wsfgs6yhg7dgf',
+    timestamp: '2020-08-23T15:12:45.833447',
     duration: {
-      unit: 'seconds',
-      value: '96'
+      value: '8',
+      unit: 'MINUTES'
     },
     waitingTime: {
-      unit: 'minutes',
-      value: '96'
+      value: '10',
+      unit: 'SECONDS'
     },
     agentData: {
-      agentId: uuid(),
-      agentName: 'Brett Knadle',
-      agentEmail: 'brett182x@gmail.com'
+      agentId: '45dfssrtv',
+      agentName: 'Trevor',
+      agentEmail: 'Trevor@johndoecc.com'
     },
     callData: {
-      direction: 'inbound',
-      callerName: 'Ekaterina Tankova',
-      callerNumber: '+19876543210',
-      issueStatus: 'pending'
+      callerName: 'Trevor Borskov',
+      callerNumber: '+18620150670',
+      ccNumber: '+19876543210',
+      direction: 'INBOUND'
     },
-    customerStatus: 'Low Priority',
+    issueStatus: 'resolved',
+    customerStatus: 'VIP'
   },
   {
-    callId: uuid(),
-    timestamp: 1555016400000,
+    callId: '398ahsduio32',
+    timestamp: '2020-08-23T10:35:77.340194',
     duration: {
-      unit: 'seconds',
-      value: '96'
+      value: '192',
+      unit: 'SECONDS'
     },
     waitingTime: {
-      unit: 'minutes',
-      value: '96'
+      value: '27',
+      unit: 'SECONDS'
     },
     agentData: {
-      agentId: uuid(),
-      agentName: 'Brett Knadle',
-      agentEmail: 'brett182x@gmail.com'
+      agentId: '49nvfos95a',
+      agentName: 'Jane',
+      agentEmail: 'jane@johndoecc.com'
     },
     callData: {
-      direction: 'inbound',
-      callerName: 'Ekaterina Tankova',
-      callerNumber: '+19876543210',
-      issueStatus: 'pending'
+      callerName: 'Camille Karl',
+      callerNumber: '+10020030004',
+      ccnumber: '+19876543210',
+      direction: 'OUTBOUND'
     },
-    customerStatus: 'Low Priority',
+    issueStatus: 'pending',
+    customerStatus: 'NORMAL'
   },
   {
-    callId: uuid(),
-    timestamp: 1555016400000,
+    callId: '12oklkp12hu1',
+    timestamp: '2020-08-23T08:55:21.451394',
     duration: {
-      unit: 'seconds',
-      value: '96'
+      value: '12',
+      unit: 'MINUTES'
     },
     waitingTime: {
-      unit: 'minutes',
-      value: '96'
+      value: '1',
+      unit: 'MINUTES'
     },
     agentData: {
-      agentId: uuid(),
-      agentName: 'Brett Knadle',
-      agentEmail: 'brett182x@gmail.com'
+      agentId: '39nsakld3',
+      agentName: 'Mark',
+      agentEmail: 'mark@johndoecc.com'
     },
     callData: {
-      direction: 'inbound',
-      callerName: 'Ekaterina Tankova',
-      callerNumber: '+19876543210',
-      issueStatus: 'pending'
+      callerName: 'Samuel Adam',
+      callerNumber: '+13020050067',
+      ccNumber: '+19876543210',
+      direction: 'OUTBOUND'
     },
-    customerStatus: 'Low Priority',
+    issueStatus: 'pending',
+    customerStatus: 'VIP'
   },
   {
-    callId: uuid(),
-    timestamp: 1555016400000,
+    callId: 'asd3ad3w90d',
+    timestamp: '2020-08-23T15:10:47.750079',
     duration: {
-      unit: 'seconds',
-      value: '96'
+      value: '5',
+      unit: 'MINUTES'
     },
     waitingTime: {
-      unit: 'minutes',
-      value: '96'
+      value: '1450',
+      unit: 'MILLISECONDS'
     },
     agentData: {
-      agentId: uuid(),
-      agentName: 'Brett Knadle',
-      agentEmail: 'brett182x@gmail.com'
+      agentId: '49nvfos95a',
+      agentName: 'Jane',
+      agentEmail: 'jane@johndoecc.com'
     },
     callData: {
-      direction: 'inbound',
-      callerName: 'Ekaterina Tankova',
-      callerNumber: '+19876543210',
-      issueStatus: 'pending'
+      callerName: 'Cavan Trotsky',
+      callerNumber: '+10010020003',
+      ccnumber: '+19876543210',
+      direction: 'INBOUND'
     },
-    customerStatus: 'Low Priority',
-  },
-  {
-    callId: uuid(),
-    timestamp: 1555016400000,
-    duration: {
-      unit: 'seconds',
-      value: '96'
-    },
-    waitingTime: {
-      unit: 'minutes',
-      value: '96'
-    },
-    agentData: {
-      agentId: uuid(),
-      agentName: 'Brett Knadle',
-      agentEmail: 'brett182x@gmail.com'
-    },
-    callData: {
-      direction: 'inbound',
-      callerName: 'Ekaterina Tankova',
-      callerNumber: '+19876543210',
-      issueStatus: 'pending'
-    },
-    customerStatus: 'Low Priority',
-  },
-  {
-    callId: uuid(),
-    timestamp: 1555016400000,
-    duration: {
-      unit: 'seconds',
-      value: '96'
-    },
-    waitingTime: {
-      unit: 'minutes',
-      value: '96'
-    },
-    agentData: {
-      agentId: uuid(),
-      agentName: 'Brett Knadle',
-      agentEmail: 'brett182x@gmail.com'
-    },
-    callData: {
-      direction: 'inbound',
-      callerName: 'Ekaterina Tankova',
-      callerNumber: '+19876543210',
-      issueStatus: 'pending'
-    },
-    customerStatus: 'Low Priority',
-  },
-  {
-    callId: uuid(),
-    timestamp: 1555016400000,
-    duration: {
-      unit: 'seconds',
-      value: '96'
-    },
-    waitingTime: {
-      unit: 'minutes',
-      value: '96'
-    },
-    agentData: {
-      agentId: uuid(),
-      agentName: 'Brett Knadle',
-      agentEmail: 'brett182x@gmail.com'
-    },
-    callData: {
-      direction: 'inbound',
-      callerName: 'Ekaterina Tankova',
-      callerNumber: '+19876543210',
-      issueStatus: 'pending'
-    },
-    customerStatus: 'Low Priority',
-  },
-  {
-    callId: uuid(),
-    timestamp: 1555016400000,
-    duration: {
-      unit: 'seconds',
-      value: '96'
-    },
-    waitingTime: {
-      unit: 'minutes',
-      value: '96'
-    },
-    agentData: {
-      agentId: uuid(),
-      agentName: 'Brett Knadle',
-      agentEmail: 'brett182x@gmail.com'
-    },
-    callData: {
-      direction: 'inbound',
-      callerName: 'Ekaterina Tankova',
-      callerNumber: '+19876543210',
-      issueStatus: 'pending'
-    },
-    customerStatus: 'Low Priority',
-  },
-  {
-    callId: uuid(),
-    timestamp: 1555016400000,
-    duration: {
-      unit: 'seconds',
-      value: '96'
-    },
-    waitingTime: {
-      unit: 'minutes',
-      value: '96'
-    },
-    agentData: {
-      agentId: uuid(),
-      agentName: 'Brett Knadle',
-      agentEmail: 'brett182x@gmail.com'
-    },
-    callData: {
-      direction: 'inbound',
-      callerName: 'Ekaterina Tankova',
-      callerNumber: '+19876543210',
-      issueStatus: 'pending'
-    },
-    customerStatus: 'Low Priority',
-  },
-  {
-    callId: uuid(),
-    timestamp: 1555016400000,
-    duration: {
-      unit: 'seconds',
-      value: '96'
-    },
-    waitingTime: {
-      unit: 'minutes',
-      value: '96'
-    },
-    agentData: {
-      agentId: uuid(),
-      agentName: 'Brett Knadle',
-      agentEmail: 'brett182x@gmail.com'
-    },
-    callData: {
-      direction: 'inbound',
-      callerName: 'Testing Tester',
-      callerNumber: '+19876543210',
-      issueStatus: 'pending'
-    },
-    customerStatus: 'Low Priority',
-  },
-  {
-    callId: uuid(),
-    timestamp: 1555016400000,
-    duration: {
-      unit: 'seconds',
-      value: '96'
-    },
-    waitingTime: {
-      unit: 'minutes',
-      value: '96'
-    },
-    agentData: {
-      agentId: uuid(),
-      agentName: 'Brett Knadle',
-      agentEmail: 'brett182x@gmail.com'
-    },
-    callData: {
-      direction: 'inbound',
-      callerName: 'Ekaterina Tankova',
-      callerNumber: '+19876543210',
-      issueStatus: 'pending'
-    },
-    customerStatus: 'Low Priority',
-  },
+    issueStatus: 'resolved',
+    customerStatus: 'VIP'
+  }
 ];

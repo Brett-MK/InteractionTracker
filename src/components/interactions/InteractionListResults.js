@@ -152,10 +152,10 @@ const InteractionListResults = ({ interactions, ...rest }) => {
                     {interaction.callData.direction}
                   </TableCell>
                   <TableCell>
-                    {`${interaction.duration.value} ${interaction.duration.unit}`}
+                    {`${interaction.duration.value} ${interaction.duration.unit.toLowerCase()}`}
                   </TableCell>
                   <TableCell>
-                    {`${interaction.waitingTime.value} ${interaction.waitingTime.unit}`}
+                    {`${interaction.waitingTime.value} ${interaction.waitingTime.unit.toLowerCase()}`}
                   </TableCell>
                   <TableCell>
                     {moment(interaction.timestamp).format('DD/MM/YYYY')}
@@ -163,7 +163,7 @@ const InteractionListResults = ({ interactions, ...rest }) => {
                   <TableCell>
                     <Chip
                       color="primary"
-                      label={interaction.callData.issueStatus}
+                      label={interaction.issueStatus}
                       size="small"
                     />
                   </TableCell>
