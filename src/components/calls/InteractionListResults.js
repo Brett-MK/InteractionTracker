@@ -8,6 +8,7 @@ import {
   Card,
   Checkbox,
   Table,
+  Chip,
   TableBody,
   TableCell,
   TableHead,
@@ -17,41 +18,41 @@ import {
 } from '@material-ui/core';
 import getInitials from 'src/utils/getInitials';
 
-const InteractionListResults = ({ customers, ...rest }) => {
-  const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
+const InteractionListResults = ({ interactions, ...rest }) => {
+  const [selectedInteractionIds, setSelectedInteractionIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
 
   const handleSelectAll = (event) => {
-    let newSelectedCustomerIds;
+    let newSelectedInteractionIds;
 
     if (event.target.checked) {
-      newSelectedCustomerIds = customers.map((customer) => customer.id);
+      newSelectedInteractionIds = interactions.map((interaction) => interaction.id);
     } else {
-      newSelectedCustomerIds = [];
+      newSelectedInteractionIds = [];
     }
 
-    setSelectedCustomerIds(newSelectedCustomerIds);
+    setSelectedInteractionIds(newSelectedInteractionIds);
   };
 
   const handleSelectOne = (event, id) => {
-    const selectedIndex = selectedCustomerIds.indexOf(id);
-    let newSelectedCustomerIds = [];
+    const selectedIndex = selectedInteractionIds.indexOf(id);
+    let newSelectedInteractionIds = [];
 
     if (selectedIndex === -1) {
-      newSelectedCustomerIds = newSelectedCustomerIds.concat(selectedCustomerIds, id);
+      newSelectedInteractionIds = newSelectedInteractionIds.concat(selectedInteractionIds, id);
     } else if (selectedIndex === 0) {
-      newSelectedCustomerIds = newSelectedCustomerIds.concat(selectedCustomerIds.slice(1));
-    } else if (selectedIndex === selectedCustomerIds.length - 1) {
-      newSelectedCustomerIds = newSelectedCustomerIds.concat(selectedCustomerIds.slice(0, -1));
+      newSelectedInteractionIds = newSelectedInteractionIds.concat(selectedInteractionIds.slice(1));
+    } else if (selectedIndex === selectedInteractionIds.length - 1) {
+      newSelectedInteractionIds = newSelectedInteractionIds.concat(selectedInteractionIds.slice(0, -1));
     } else if (selectedIndex > 0) {
-      newSelectedCustomerIds = newSelectedCustomerIds.concat(
-        selectedCustomerIds.slice(0, selectedIndex),
-        selectedCustomerIds.slice(selectedIndex + 1)
+      newSelectedInteractionIds = newSelectedInteractionIds.concat(
+        selectedInteractionIds.slice(0, selectedIndex),
+        selectedInteractionIds.slice(selectedIndex + 1)
       );
     }
 
-    setSelectedCustomerIds(newSelectedCustomerIds);
+    setSelectedInteractionIds(newSelectedInteractionIds);
   };
 
   const handleLimitChange = (event) => {
@@ -71,43 +72,52 @@ const InteractionListResults = ({ customers, ...rest }) => {
               <TableRow>
                 <TableCell padding="checkbox">
                   <Checkbox
-                    checked={selectedCustomerIds.length === customers.length}
+                    checked={selectedInteractionIds.length === interactions.length}
                     color="primary"
                     indeterminate={
-                      selectedCustomerIds.length > 0
-                      && selectedCustomerIds.length < customers.length
+                      selectedInteractionIds.length > 0
+                      && selectedInteractionIds.length < interactions.length
                     }
                     onChange={handleSelectAll}
                   />
                 </TableCell>
                 <TableCell>
-                  Name
+                  Customer
                 </TableCell>
                 <TableCell>
-                  Email
+                  Customer Status
                 </TableCell>
                 <TableCell>
-                  Location
+                  Agent
                 </TableCell>
                 <TableCell>
-                  Phone
+                  Direction
                 </TableCell>
                 <TableCell>
-                  Registration date
+                  Duration
+                </TableCell>
+                <TableCell>
+                  Waiting Time
+                </TableCell>
+                <TableCell>
+                  Date
+                </TableCell>
+                <TableCell>
+                  Status
                 </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {customers.slice(0, limit).map((customer) => (
+              {interactions.slice(0, limit).map((interaction) => (
                 <TableRow
                   hover
-                  key={customer.id}
-                  selected={selectedCustomerIds.indexOf(customer.id) !== -1}
+                  key={interaction.id}
+                  selected={selectedInteractionIds.indexOf(interaction.id) !== -1}
                 >
                   <TableCell padding="checkbox">
                     <Checkbox
-                      checked={selectedCustomerIds.indexOf(customer.id) !== -1}
-                      onChange={(event) => handleSelectOne(event, customer.id)}
+                      checked={selectedInteractionIds.indexOf(interaction.id) !== -1}
+                      onChange={(event) => handleSelectOne(event, interaction.id)}
                       value="true"
                     />
                   </TableCell>
@@ -119,30 +129,43 @@ const InteractionListResults = ({ customers, ...rest }) => {
                       }}
                     >
                       <Avatar
-                        src={customer.avatarUrl}
+                        src={interaction.avatarUrl}
                         sx={{ mr: 2 }}
                       >
-                        {getInitials(customer.name)}
+                        {getInitials(interaction.callData.callerName)}
                       </Avatar>
                       <Typography
                         color="textPrimary"
                         variant="body1"
                       >
-                        {customer.name}
+                        {interaction.callData.callerName}
                       </Typography>
                     </Box>
                   </TableCell>
                   <TableCell>
-                    {customer.email}
+                    {interaction.customerStatus}
                   </TableCell>
                   <TableCell>
-                    {`${customer.address.city}, ${customer.address.state}, ${customer.address.country}`}
+                    {interaction.agentData.agentName}
                   </TableCell>
                   <TableCell>
-                    {customer.phone}
+                    {interaction.callData.direction}
                   </TableCell>
                   <TableCell>
-                    {moment(customer.createdAt).format('DD/MM/YYYY')}
+                    {`${interaction.duration.value} ${interaction.duration.unit}`}
+                  </TableCell>
+                  <TableCell>
+                    {`${interaction.waitingTime.value} ${interaction.waitingTime.unit}`}
+                  </TableCell>
+                  <TableCell>
+                    {moment(interaction.timestamp).format('DD/MM/YYYY')}
+                  </TableCell>
+                  <TableCell>
+                    <Chip
+                      color="primary"
+                      label={interaction.callData.issueStatus}
+                      size="small"
+                    />
                   </TableCell>
                 </TableRow>
               ))}
@@ -152,7 +175,7 @@ const InteractionListResults = ({ customers, ...rest }) => {
       </PerfectScrollbar>
       <TablePagination
         component="div"
-        count={customers.length}
+        count={interactions.length}
         onPageChange={handlePageChange}
         onRowsPerPageChange={handleLimitChange}
         page={page}
@@ -164,7 +187,7 @@ const InteractionListResults = ({ customers, ...rest }) => {
 };
 
 InteractionListResults.propTypes = {
-  customers: PropTypes.array.isRequired
+  interactions: PropTypes.array.isRequired
 };
 
 export default InteractionListResults;

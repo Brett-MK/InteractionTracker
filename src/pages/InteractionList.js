@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet';
 import { Box, Container } from '@material-ui/core';
 import InteractionListResults from 'src/components/calls/InteractionListResults';
 import InteractionListToolbar from 'src/components/calls/InteractionListToolbar';
-import customers from 'src/__mocks__/customers';
+import interactions from 'src/__mocks__/interactions';
 
 const InteractionList = () => (
   <>
@@ -19,7 +19,7 @@ const InteractionList = () => (
       <Container maxWidth={false}>
         <InteractionListToolbar />
         <Box sx={{ pt: 3 }}>
-          <InteractionListResults customers={customers} />
+          <InteractionListResults interactions={interactions} />
         </Box>
       </Container>
     </Box>
