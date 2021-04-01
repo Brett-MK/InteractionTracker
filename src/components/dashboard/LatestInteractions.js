@@ -33,7 +33,7 @@ const LatestInteractions = ({ interactions, ...rest }) => {
                   Customer
                 </TableCell>
                 <TableCell>
-                  Customer Status
+                  Status
                 </TableCell>
                 <TableCell>
                   Agent
