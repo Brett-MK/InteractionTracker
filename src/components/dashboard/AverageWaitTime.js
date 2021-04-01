@@ -7,12 +7,15 @@ import {
   Typography
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import { green } from '@material-ui/core/colors';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import PeopleIcon from '@material-ui/icons/PeopleOutlined';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import MoneyIcon from '@material-ui/icons/Money';
+import { red, green } from '@material-ui/core/colors';
 
-const TotalInteractions = ({ totalInteractions, ...rest }) => (
-  <Card {...rest}>
+const AverageWaitTime = ({ averageWaitTime, ...rest }) => (
+  <Card
+    sx={{ height: '100%' }}
+    {...rest}
+  >
     <CardContent>
       <Grid
         container
@@ -25,43 +28,43 @@ const TotalInteractions = ({ totalInteractions, ...rest }) => (
             gutterBottom
             variant="h6"
           >
-            TOTAL INTERACTIONS TODAY
+            AVERAGE WAIT TIME TODAY
           </Typography>
           <Typography
             color="textPrimary"
             variant="h3"
           >
-            {totalInteractions}
+            {`${averageWaitTime.value} ${averageWaitTime.unit.toLowerCase()}`}
           </Typography>
         </Grid>
         <Grid item>
           <Avatar
             sx={{
-              backgroundColor: green[600],
+              backgroundColor: red[600],
               height: 56,
               width: 56
             }}
           >
-            <PeopleIcon />
+            <MoneyIcon />
           </Avatar>
         </Grid>
       </Grid>
       <Box
         sx={{
-          alignItems: 'center',
+          pt: 2,
           display: 'flex',
-          pt: 2
+          alignItems: 'center'
         }}
       >
-        <ArrowUpwardIcon sx={{ color: green[900] }} />
+        <ArrowDownwardIcon sx={{ color: green[900] }} />
         <Typography
-          variant="body2"
           sx={{
             color: green[900],
             mr: 1
           }}
+          variant="body2"
         >
-          16%
+          12%
         </Typography>
         <Typography
           color="textSecondary"
@@ -74,8 +77,8 @@ const TotalInteractions = ({ totalInteractions, ...rest }) => (
   </Card>
 );
 
-TotalInteractions.propTypes = {
-  totalInteractions: PropTypes.number.isRequired
+AverageWaitTime.propTypes = {
+  averageWaitTime: PropTypes.object.isRequired
 };
 
-export default TotalInteractions;
+export default AverageWaitTime;

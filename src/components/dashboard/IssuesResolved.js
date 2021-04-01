@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import { orange } from '@material-ui/core/colors';
 import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
 
-const IssuesResolved = ({ issuesResolved, ...rest }) => (
+const IssuesResolved = ({ totalInteractions, issuesResolved, ...rest }) => (
   <Card
     sx={{ height: '100%' }}
     {...rest}
@@ -28,13 +28,13 @@ const IssuesResolved = ({ issuesResolved, ...rest }) => (
             gutterBottom
             variant="h6"
           >
-            ISSUES RESOLVED THIS MONTH
+            ISSUES RESOLVED TODAY
           </Typography>
           <Typography
             color="textPrimary"
             variant="h3"
           >
-            {issuesResolved}
+            {`${issuesResolved}/${totalInteractions}`}
           </Typography>
         </Grid>
         <Grid item>
@@ -51,7 +51,7 @@ const IssuesResolved = ({ issuesResolved, ...rest }) => (
       </Grid>
       <Box sx={{ pt: 3 }}>
         <LinearProgress
-          value={75.5}
+          value={(issuesResolved / totalInteractions) * 100}
           variant="determinate"
         />
       </Box>
@@ -60,7 +60,8 @@ const IssuesResolved = ({ issuesResolved, ...rest }) => (
 );
 
 IssuesResolved.propTypes = {
-  issuesResolved: PropTypes.string.isRequired
+  totalInteractions: PropTypes.number.isRequired,
+  issuesResolved: PropTypes.number.isRequired
 };
 
 export default IssuesResolved;

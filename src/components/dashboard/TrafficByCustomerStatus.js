@@ -14,7 +14,7 @@ import NotificationImportant from '@material-ui/icons/NotificationImportant';
 import PersonIcon from '@material-ui/icons/Person';
 import LowPriority from '@material-ui/icons/LowPriority';
 
-const TrafficByCustomerStatus = ({ trafficByCustomerStatus, ...rest }) => {
+const TrafficByCustomerStatus = ({ totalInteractions, trafficByCustomerStatus, ...rest }) => {
   const theme = useTheme();
 
   const data = {
@@ -79,7 +79,7 @@ const TrafficByCustomerStatus = ({ trafficByCustomerStatus, ...rest }) => {
 
   return (
     <Card {...rest}>
-      <CardHeader title="Traffic by Customer Status This Month" />
+      <CardHeader title="Traffic by Customer Status Today" />
       <Divider />
       <CardContent>
         <Box
@@ -88,10 +88,13 @@ const TrafficByCustomerStatus = ({ trafficByCustomerStatus, ...rest }) => {
             position: 'relative'
           }}
         >
-          <Doughnut
-            data={data}
-            options={options}
-          />
+          { totalInteractions > 0 ? (
+            <Doughnut
+              data={data}
+              options={options}
+            />
+          )
+            : '' }
         </Box>
         <Box
           sx={{
@@ -125,7 +128,6 @@ const TrafficByCustomerStatus = ({ trafficByCustomerStatus, ...rest }) => {
                 variant="h2"
               >
                 {value}
-                %
               </Typography>
             </Box>
           ))}
@@ -136,7 +138,8 @@ const TrafficByCustomerStatus = ({ trafficByCustomerStatus, ...rest }) => {
 };
 
 TrafficByCustomerStatus.propTypes = {
-  trafficByCustomerStatus: PropTypes.object.isRequired
+  trafficByCustomerStatus: PropTypes.object.isRequired,
+  totalInteractions: PropTypes.number.isRequired
 };
 
 export default TrafficByCustomerStatus;

@@ -7,11 +7,11 @@ import {
   Typography
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import MoneyIcon from '@material-ui/icons/Money';
-import { red } from '@material-ui/core/colors';
+import { indigo, red } from '@material-ui/core/colors';
 
-const TotalWaitTime = ({ totalWaitTime, ...rest }) => (
+const TotalDurationOfInteractions = ({ totalDuration, ...rest }) => (
   <Card
     sx={{ height: '100%' }}
     {...rest}
@@ -28,19 +28,19 @@ const TotalWaitTime = ({ totalWaitTime, ...rest }) => (
             gutterBottom
             variant="h6"
           >
-            TOTAL WAIT TIME THIS MONTH
+            TOTAL DURATION OF CALLS TODAY
           </Typography>
           <Typography
             color="textPrimary"
             variant="h3"
           >
-            {totalWaitTime}
+            {`${totalDuration.value} ${totalDuration.unit.toLowerCase()}`}
           </Typography>
         </Grid>
         <Grid item>
           <Avatar
             sx={{
-              backgroundColor: red[600],
+              backgroundColor: indigo[600],
               height: 56,
               width: 56
             }}
@@ -56,7 +56,7 @@ const TotalWaitTime = ({ totalWaitTime, ...rest }) => (
           alignItems: 'center'
         }}
       >
-        <ArrowDownwardIcon sx={{ color: red[900] }} />
+        <ArrowUpwardIcon sx={{ color: red[900] }} />
         <Typography
           sx={{
             color: red[900],
@@ -70,15 +70,15 @@ const TotalWaitTime = ({ totalWaitTime, ...rest }) => (
           color="textSecondary"
           variant="caption"
         >
-          Since last month
+          Since yesterday
         </Typography>
       </Box>
     </CardContent>
   </Card>
 );
 
-TotalWaitTime.propTypes = {
-  totalWaitTime: PropTypes.string.isRequired
+TotalDurationOfInteractions.propTypes = {
+  totalDuration: PropTypes.object.isRequired
 };
 
-export default TotalWaitTime;
+export default TotalDurationOfInteractions;

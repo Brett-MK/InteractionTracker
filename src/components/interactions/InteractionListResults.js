@@ -158,11 +158,11 @@ const InteractionListResults = ({ interactions, ...rest }) => {
                     {`${interaction.waitingTime.value} ${interaction.waitingTime.unit.toLowerCase()}`}
                   </TableCell>
                   <TableCell>
-                    {moment(interaction.timestamp).format('DD/MM/YYYY')}
+                    {moment(interaction.timestamp).format('MM/DD/YYYY')}
                   </TableCell>
                   <TableCell>
                     <Chip
-                      color={interaction.issueStatus === 'pending' ? 'error' : 'primary'}
+                      color={interaction.issueStatus === 'Pending' ? 'error' : 'primary'}
                       label={interaction.issueStatus}
                       size="small"
                     />
