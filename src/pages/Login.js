@@ -160,6 +160,7 @@ const Login = () => {
                 </Box>
                 <Typography color="textSecondary" variant="body1">
                   Don&apos;t have an account?
+                  {' '}
                   <Link component={RouterLink} to="/register" variant="h6">
                     Sign up
                   </Link>
