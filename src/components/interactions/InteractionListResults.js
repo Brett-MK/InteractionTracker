@@ -192,7 +192,7 @@ const InteractionListResults = ({ interactions, ...rest }) => {
                   </TableCell>
                   <TableCell>
                     <Chip
-                      color={interaction.issueStatus === 'Pending' ? 'error' : 'primary'}
+                      style={interaction.issueStatus === 'Pending' ? { backgroundColor: '#E53935', color: 'white' } : { backgroundColor: '#5664D2', color: 'white' }}
                       label={interaction.issueStatus}
                       size="small"
                     />

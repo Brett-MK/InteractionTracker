@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   Avatar,
@@ -11,8 +11,8 @@ import {
   Typography
 } from '@material-ui/core';
 import {
-  BarChart as BarChartIcon,
   LogOut as LogOutIcon,
+  BarChart as BarChartIcon,
   Settings as SettingsIcon,
   User as UserIcon,
   Users as UsersIcon
@@ -27,7 +27,13 @@ const user = {
 
 const DashboardSidebar = ({ onMobileClose, openMobile }) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { logout, currentUser } = useAuth();
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/');
+  };
 
   const items = [
     {
@@ -109,10 +115,11 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
             />
           ))}
           <NavItem
-            onClick={() => logout()}
-            title="logout"
+            onClick={() => handleLogout()}
+            key="logout"
+            href=""
+            title="Logout"
             icon={LogOutIcon}
-            href="/login"
           />
         </List>
       </Box>

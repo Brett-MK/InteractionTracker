@@ -6,6 +6,9 @@ import {
   Grid,
 } from '@material-ui/core';
 import axios from 'axios';
+import {
+  HubConnectionBuilder,
+} from '@microsoft/signalr';
 import AverageWaitTime from 'src/components/dashboard/AverageWaitTime';
 import LatestInteractions from 'src/components/dashboard/LatestInteractions';
 import IssuesResolved from 'src/components/dashboard/IssuesResolved';
@@ -20,25 +23,50 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [dailyReport, setDailyReport] = useState({});
 
-  const { getIdToken } = useAuth();
+  const { getIdToken, currentUser } = useAuth();
+
+  const setUpSignalRConnection = async () => {
+    const connection = new HubConnectionBuilder()
+      .withUrl('https://localhost:5001/interactionHub')
+      .withAutomaticReconnect()
+      .build();
+
+    connection.on('InteractionsAdded', (receivedInteractions) => {
+      setInteractions(receivedInteractions);
+    });
+
+    connection.on('DailyReportUpdated', (receivedDailyReport) => {
+      setDailyReport(receivedDailyReport);
+    });
+
+    try {
+      await connection.start();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   useEffect(() => {
     const getData = async () => {
-      const idToken = await getIdToken();
-      const interactionsResponse = await axios.get('https://localhost:5001/api/interactions', {
-        headers: {
-          Authorization: `Bearer ${idToken}`,
-        }
-      });
-      const dailyReportResponse = await axios.get('https://localhost:5001/api/reports/daily', {
-        headers: {
-          Authorization: `Bearer ${idToken}`,
-        }
-      });
+      if (currentUser) {
+        const idToken = await getIdToken();
+        const interactionsResponse = await axios.get('https://localhost:5001/api/interactions', {
+          headers: {
+            Authorization: `Bearer ${idToken}`,
+          }
+        });
+        const dailyReportResponse = await axios.get('https://localhost:5001/api/reports/daily', {
+          headers: {
+            Authorization: `Bearer ${idToken}`,
+          }
+        });
 
-      setInteractions(interactionsResponse.data);
-      setDailyReport(dailyReportResponse.data);
-      setLoading(false);
+        setInteractions(interactionsResponse.data);
+        setDailyReport(dailyReportResponse.data);
+        setUpSignalRConnection();
+
+        setLoading(false);
+      }
     };
 
     getData();

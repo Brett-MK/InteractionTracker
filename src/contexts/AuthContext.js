@@ -40,7 +40,11 @@ export function AuthProvider({ children }) {
   }
 
   function getIdToken() {
-    return auth.currentUser.getIdToken(true);
+    if (auth.currentUser) {
+      return auth.currentUser.getIdToken(true);
+    }
+
+    return null;
   }
 
   function resetPassword(email) {
