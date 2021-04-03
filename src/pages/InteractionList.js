@@ -5,14 +5,22 @@ import axios from 'axios';
 import InteractionListResults from 'src/components/interactions/InteractionListResults';
 import InteractionListToolbar from 'src/components/interactions/InteractionListToolbar';
 import CircularProgressIndicator from 'src/components/CircularProgressIndicator';
+import { useAuth } from '../contexts/AuthContext';
 
 const InteractionList = () => {
   const [interactions, setInteractions] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const { getIdToken } = useAuth();
+
   useEffect(() => {
     const getData = async () => {
-      const interactionsResponse = await axios.get('https://localhost:5001/api/interactions');
+      const idToken = await getIdToken();
+      const interactionsResponse = await axios.get('https://localhost:5001/api/interactions', {
+        headers: {
+          Authorization: `Bearer ${idToken}`,
+        }
+      });
 
       setInteractions(interactionsResponse.data);
       setLoading(false);

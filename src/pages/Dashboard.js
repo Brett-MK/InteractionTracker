@@ -13,16 +13,28 @@ import TotalInteractions from 'src/components/dashboard/TotalInteractions';
 import TrafficByCustomerStatus from 'src/components/dashboard//TrafficByCustomerStatus';
 import TotalDurationOfInteractions from 'src/components/dashboard/TotalDurationOfInteractions';
 import CircularProgressIndicator from 'src/components/CircularProgressIndicator';
+import { useAuth } from '../contexts/AuthContext';
 
 const Dashboard = () => {
   const [interactions, setInteractions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [dailyReport, setDailyReport] = useState({});
 
+  const { getIdToken } = useAuth();
+
   useEffect(() => {
     const getData = async () => {
-      const interactionsResponse = await axios.get('https://localhost:5001/api/interactions');
-      const dailyReportResponse = await axios.get('https://localhost:5001/api/reports/daily');
+      const idToken = await getIdToken();
+      const interactionsResponse = await axios.get('https://localhost:5001/api/interactions', {
+        headers: {
+          Authorization: `Bearer ${idToken}`,
+        }
+      });
+      const dailyReportResponse = await axios.get('https://localhost:5001/api/reports/daily', {
+        headers: {
+          Authorization: `Bearer ${idToken}`,
+        }
+      });
 
       setInteractions(interactionsResponse.data);
       setDailyReport(dailyReportResponse.data);
