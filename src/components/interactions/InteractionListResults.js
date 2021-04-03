@@ -85,10 +85,25 @@ const InteractionListResults = ({ interactions, ...rest }) => {
                   Customer
                 </TableCell>
                 <TableCell>
+                  CallId
+                </TableCell>
+                <TableCell>
                   Status
                 </TableCell>
                 <TableCell>
-                  Agent
+                  Number
+                </TableCell>
+                <TableCell>
+                  CC Number
+                </TableCell>
+                <TableCell>
+                  Agent Id
+                </TableCell>
+                <TableCell>
+                  Name
+                </TableCell>
+                <TableCell>
+                  Email
                 </TableCell>
                 <TableCell>
                   Direction
@@ -97,7 +112,7 @@ const InteractionListResults = ({ interactions, ...rest }) => {
                   Duration
                 </TableCell>
                 <TableCell>
-                  Waiting Time
+                  Wait
                 </TableCell>
                 <TableCell>
                   Date
@@ -143,22 +158,37 @@ const InteractionListResults = ({ interactions, ...rest }) => {
                     </Box>
                   </TableCell>
                   <TableCell>
+                    {interaction.callId}
+                  </TableCell>
+                  <TableCell>
                     {interaction.customerStatus}
+                  </TableCell>
+                  <TableCell>
+                    {interaction.callData.callerNumber}
+                  </TableCell>
+                  <TableCell>
+                    {interaction.callData.ccNumber}
+                  </TableCell>
+                  <TableCell>
+                    {interaction.agentData.agentId}
                   </TableCell>
                   <TableCell>
                     {interaction.agentData.agentName}
                   </TableCell>
                   <TableCell>
+                    {interaction.agentData.agentEmail}
+                  </TableCell>
+                  <TableCell>
                     {interaction.callData.direction}
                   </TableCell>
                   <TableCell>
-                    {`${interaction.duration.value} ${interaction.duration.unit.toLowerCase()}`}
+                    {`${interaction.duration.value.toLocaleString('en')} ${interaction.duration.unit.toLowerCase()}`}
                   </TableCell>
                   <TableCell>
-                    {`${interaction.waitingTime.value} ${interaction.waitingTime.unit.toLowerCase()}`}
+                    {`${interaction.waitingTime.value.toLocaleString('en')} ${interaction.waitingTime.unit.toLowerCase()}`}
                   </TableCell>
                   <TableCell>
-                    {moment(interaction.timestamp).format('MM/DD/YYYY')}
+                    {moment.utc(interaction.timestamp).local().format('MM/DD hh:mm a')}
                   </TableCell>
                   <TableCell>
                     <Chip

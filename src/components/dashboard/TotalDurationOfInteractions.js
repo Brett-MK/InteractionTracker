@@ -8,7 +8,7 @@ import {
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import MoneyIcon from '@material-ui/icons/Money';
+import PhoneIcon from '@material-ui/icons/Phone';
 import { indigo, red } from '@material-ui/core/colors';
 
 const TotalDurationOfInteractions = ({ totalDuration, ...rest }) => (
@@ -34,7 +34,7 @@ const TotalDurationOfInteractions = ({ totalDuration, ...rest }) => (
             color="textPrimary"
             variant="h3"
           >
-            {`${totalDuration.value} ${totalDuration.unit.toLowerCase()}`}
+            {`${Math.floor(totalDuration.value / 60000).toLocaleString('en')} minutes`}
           </Typography>
         </Grid>
         <Grid item>
@@ -45,7 +45,7 @@ const TotalDurationOfInteractions = ({ totalDuration, ...rest }) => (
               width: 56
             }}
           >
-            <MoneyIcon />
+            <PhoneIcon />
           </Avatar>
         </Grid>
       </Grid>

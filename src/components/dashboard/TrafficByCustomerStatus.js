@@ -82,20 +82,20 @@ const TrafficByCustomerStatus = ({ totalInteractions, trafficByCustomerStatus, .
       <CardHeader title="Traffic by Customer Status Today" />
       <Divider />
       <CardContent>
-        <Box
-          sx={{
-            height: 300,
-            position: 'relative'
-          }}
-        >
-          { totalInteractions > 0 ? (
+        { totalInteractions > 0 ? (
+          <Box
+            sx={{
+              height: 300,
+              position: 'relative'
+            }}
+          >
             <Doughnut
               data={data}
               options={options}
             />
-          )
-            : '' }
-        </Box>
+          </Box>
+        )
+          : '' }
         <Box
           sx={{
             display: 'flex',

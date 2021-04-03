@@ -74,13 +74,13 @@ const LatestInteractions = ({ interactions, ...rest }) => {
                     {interaction.callData.direction}
                   </TableCell>
                   <TableCell>
-                    {`${interaction.duration.value} ${interaction.duration.unit.toLowerCase()}`}
+                    {`${interaction.duration.value.toLocaleString('en')} ${interaction.duration.unit.toLowerCase()}`}
                   </TableCell>
                   <TableCell>
-                    {`${interaction.waitingTime.value} ${interaction.waitingTime.unit.toLowerCase()}`}
+                    {`${interaction.waitingTime.value.toLocaleString('en')} ${interaction.waitingTime.unit.toLowerCase()}`}
                   </TableCell>
                   <TableCell>
-                    {moment(interaction.timestamp).format('MM/DD/YYYY')}
+                    {moment.utc(interaction.timestamp).local().format('MM/DD hh:mm a')}
                   </TableCell>
                   <TableCell>
                     <Chip

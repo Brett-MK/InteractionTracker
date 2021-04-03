@@ -8,7 +8,7 @@ import {
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import MoneyIcon from '@material-ui/icons/Money';
+import PhonePaused from '@material-ui/icons/PhonePaused';
 import { red, green } from '@material-ui/core/colors';
 
 const AverageWaitTime = ({ averageWaitTime, ...rest }) => (
@@ -34,7 +34,7 @@ const AverageWaitTime = ({ averageWaitTime, ...rest }) => (
             color="textPrimary"
             variant="h3"
           >
-            {`${averageWaitTime.value} ${averageWaitTime.unit.toLowerCase()}`}
+            {`${Math.floor(averageWaitTime.value / 60000).toLocaleString('en')} minutes`}
           </Typography>
         </Grid>
         <Grid item>
@@ -45,7 +45,7 @@ const AverageWaitTime = ({ averageWaitTime, ...rest }) => (
               width: 56
             }}
           >
-            <MoneyIcon />
+            <PhonePaused />
           </Avatar>
         </Grid>
       </Grid>
