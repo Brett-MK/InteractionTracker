@@ -80,7 +80,7 @@ const LatestInteractions = ({ interactions, ...rest }) => {
                     {`${interaction.waitingTime.value.toLocaleString('en')} ${interaction.waitingTime.unit.toLowerCase()}`}
                   </TableCell>
                   <TableCell style={{ whiteSpace: 'nowrap' }}>
-                    {moment.utc(interaction.timestamp).local().format('MM/DD hh:mm a')}
+                    {moment.utc(interaction.timestamp).local().format('M/DD h:mm a')}
                   </TableCell>
                   <TableCell>
                     <Chip
