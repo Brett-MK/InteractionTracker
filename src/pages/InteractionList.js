@@ -14,6 +14,8 @@ const InteractionList = () => {
   const { getIdToken } = useAuth();
 
   useEffect(() => {
+    let unmounted = false;
+
     const getData = async () => {
       const idToken = await getIdToken();
       const interactionsResponse = await axios.get('https://localhost:5001/api/interactions', {
@@ -22,11 +24,15 @@ const InteractionList = () => {
         }
       });
 
-      setInteractions(interactionsResponse.data);
-      setLoading(false);
+      if (!unmounted) {
+        setInteractions(interactionsResponse.data);
+        setLoading(false);
+      }
     };
 
     getData();
+
+    return () => { unmounted = true; };
   }, []);
 
   if (loading) {

@@ -31,6 +31,10 @@ const Dashboard = () => {
       .withAutomaticReconnect()
       .build();
 
+    connection.on('Message', (message) => {
+      console.log('Message', message);
+    });
+
     connection.on('InteractionsAdded', (receivedInteractions) => {
       setInteractions(receivedInteractions);
     });
@@ -47,6 +51,8 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
+    let unmounted = false;
+
     const getData = async () => {
       if (currentUser) {
         const idToken = await getIdToken();
@@ -61,15 +67,19 @@ const Dashboard = () => {
           }
         });
 
-        setInteractions(interactionsResponse.data);
-        setDailyReport(dailyReportResponse.data);
-        setUpSignalRConnection();
+        if (!unmounted) {
+          setInteractions(interactionsResponse.data);
+          setDailyReport(dailyReportResponse.data);
+          setUpSignalRConnection();
 
-        setLoading(false);
+          setLoading(false);
+        }
       }
     };
 
     getData();
+
+    return () => { unmounted = true; };
   }, []);
 
   if (loading) {

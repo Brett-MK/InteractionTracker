@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import {
-  Avatar,
   Box,
   Card,
   Checkbox,
@@ -13,10 +12,8 @@ import {
   TableCell,
   TableHead,
   TablePagination,
-  TableRow,
-  Typography
+  TableRow
 } from '@material-ui/core';
-import getInitials from 'src/utils/getInitials';
 
 const InteractionListResults = ({ interactions, ...rest }) => {
   const [selectedInteractionIds, setSelectedInteractionIds] = useState([]);
@@ -136,59 +133,41 @@ const InteractionListResults = ({ interactions, ...rest }) => {
                       value="true"
                     />
                   </TableCell>
-                  <TableCell>
-                    <Box
-                      sx={{
-                        alignItems: 'center',
-                        display: 'flex'
-                      }}
-                    >
-                      <Avatar
-                        src={interaction.avatarUrl}
-                        sx={{ mr: 2 }}
-                      >
-                        {getInitials(interaction.callData.callerName)}
-                      </Avatar>
-                      <Typography
-                        color="textPrimary"
-                        variant="body1"
-                      >
-                        {interaction.callData.callerName}
-                      </Typography>
-                    </Box>
+                  <TableCell style={{ whiteSpace: 'nowrap' }}>
+                    {interaction.callData.callerName}
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{ whiteSpace: 'nowrap' }}>
                     {interaction.callId}
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{ whiteSpace: 'nowrap' }}>
                     {interaction.customerStatus}
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{ whiteSpace: 'nowrap' }}>
                     {interaction.callData.callerNumber}
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{ whiteSpace: 'nowrap' }}>
                     {interaction.callData.ccNumber}
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{ whiteSpace: 'nowrap' }}>
                     {interaction.agentData.agentId}
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{ whiteSpace: 'nowrap' }}>
                     {interaction.agentData.agentName}
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{ whiteSpace: 'nowrap' }}>
                     {interaction.agentData.agentEmail}
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{ whiteSpace: 'nowrap' }}>
                     {interaction.callData.direction}
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{ whiteSpace: 'nowrap' }}>
                     {`${interaction.duration.value.toLocaleString('en')} ${interaction.duration.unit.toLowerCase()}`}
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{ whiteSpace: 'nowrap' }}>
                     {`${interaction.waitingTime.value.toLocaleString('en')} ${interaction.waitingTime.unit.toLowerCase()}`}
                   </TableCell>
-                  <TableCell>
-                    {moment.utc(interaction.timestamp).local().format('MM/DD hh:mm a')}
+                  <TableCell style={{ whiteSpace: 'nowrap' }}>
+                    {moment.utc(interaction.timestamp).local().format('M/DD h:mm a')}
                   </TableCell>
                   <TableCell>
                     <Chip

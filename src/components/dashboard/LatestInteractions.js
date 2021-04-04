@@ -61,25 +61,25 @@ const LatestInteractions = ({ interactions, ...rest }) => {
                   hover
                   key={interaction.callId}
                 >
-                  <TableCell>
+                  <TableCell style={{ whiteSpace: 'nowrap' }}>
                     {interaction.callData.callerName}
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{ whiteSpace: 'nowrap' }}>
                     {interaction.customerStatus}
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{ whiteSpace: 'nowrap' }}>
                     {interaction.agentData.agentName}
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{ whiteSpace: 'nowrap' }}>
                     {interaction.callData.direction}
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{ whiteSpace: 'nowrap' }}>
                     {`${interaction.duration.value.toLocaleString('en')} ${interaction.duration.unit.toLowerCase()}`}
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{ whiteSpace: 'nowrap' }}>
                     {`${interaction.waitingTime.value.toLocaleString('en')} ${interaction.waitingTime.unit.toLowerCase()}`}
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{ whiteSpace: 'nowrap' }}>
                     {moment.utc(interaction.timestamp).local().format('MM/DD hh:mm a')}
                   </TableCell>
                   <TableCell>
