@@ -18,7 +18,7 @@ const InteractionList = () => {
 
     const getData = async () => {
       const idToken = await getIdToken();
-      const interactionsResponse = await axios.get('https://localhost:5001/api/interactions', {
+      const interactionsResponse = await axios.get('https://localhost:3001/api/interactions', {
         headers: {
           Authorization: `Bearer ${idToken}`,
         }

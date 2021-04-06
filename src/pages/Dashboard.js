@@ -27,7 +27,7 @@ const Dashboard = () => {
 
   const setUpSignalRConnection = async () => {
     const connection = new HubConnectionBuilder()
-      .withUrl('https://localhost:5001/interactionHub')
+      .withUrl('https://localhost:3001/interactionHub')
       .withAutomaticReconnect()
       .build();
 
@@ -56,12 +56,12 @@ const Dashboard = () => {
     const getData = async () => {
       if (currentUser) {
         const idToken = await getIdToken();
-        const interactionsResponse = await axios.get('https://localhost:5001/api/interactions', {
+        const interactionsResponse = await axios.get('https://localhost:3001/api/interactions', {
           headers: {
             Authorization: `Bearer ${idToken}`,
           }
         });
-        const dailyReportResponse = await axios.get('https://localhost:5001/api/reports/daily', {
+        const dailyReportResponse = await axios.get('https://localhost:3001/api/reports/daily', {
           headers: {
             Authorization: `Bearer ${idToken}`,
           }
