@@ -17,7 +17,7 @@ const user = {
   country: 'USA',
   jobTitle: 'Senior Developer',
   name: 'Katarina Smith',
-  timezone: 'GTM-8'
+  timezone: 'GMT-8'
 };
 
 const AccountProfile = (props) => {
